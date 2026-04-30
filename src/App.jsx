@@ -91,7 +91,7 @@ function App() {
         fontWeight: "bold",
         marginBottom: "30px"
       }}>
-        🌿 DEV Environment
+        🌿 Stage Environment
       </div>
 
       {/* Info Cards */}
