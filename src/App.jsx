@@ -155,7 +155,7 @@ function App(){
       <span  onClick={()=>setSelectedMovie(null)}> Cinibook</span>
       <p>Your city.Your show. Your seat.</p>
 
-      {selectedMovie === null ? (<h1>Movies List</h1>) : (<h2>select the time </h2>)}
+      {selectedMovie === null ? (<MovieList/>) : (<Showtimes/>)}
     </div>
     
   );
