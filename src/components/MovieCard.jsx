@@ -4,13 +4,13 @@
 function MovieCard({ movie, onClick }) {
   return (
     <div className="movie-card" onClick={() => onClick(movie)}>
-      {/* Poster area — bg color from data */}
+      
       <div className="movie-poster" style={{ background: movie.bg }}>
         <span className="movie-emoji">{movie.poster}</span>
         <span className="rating-badge">{movie.rating} ★</span>
       </div>
 
-      {/* Info */}
+      
       <div className="movie-info">
         <h3 className="movie-title">{movie.title}</h3>
         <p className="movie-meta">
