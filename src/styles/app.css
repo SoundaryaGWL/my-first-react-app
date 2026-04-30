@@ -19,6 +19,7 @@ body {
   padding: 0 1rem 3rem;
 }
 
+
 .app-header {
   padding: 2rem 0 1.5rem;
   border-bottom: 1px solid #e2e8f0;
@@ -31,6 +32,9 @@ body {
   cursor: pointer;
   display: inline-block;
   letter-spacing: -0.5px;
+}
+.logo-text{
+    color: burlywood;
 }
 
 .app-tagline {
