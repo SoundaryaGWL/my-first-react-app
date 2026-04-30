@@ -58,19 +58,66 @@
 //     </div>
 //   );
 // }
-import { useState, useEffect } from "react";
+// import { useState, useEffect } from "react";
 
+// function App() {
+//   const [count, setCount] = useState(0);
+
+//   useEffect(() => {
+//     console.log("Count changed:", count);
+//   }, [count]);
+
+//   return (
+//     <button onClick={() => setCount(count + 1)}>
+//       {count}
+//     </button>
+//   );
+// }
 function App() {
-  const [count, setCount] = useState(0);
-
-  useEffect(() => {
-    console.log("Count changed:", count);
-  }, [count]);
-
   return (
-    <button onClick={() => setCount(count + 1)}>
-      {count}
-    </button>
-  );
+    <div style={{ fontFamily: "Arial", textAlign: "center", padding: "40px" }}>
+      
+      {/* Header */}
+      <h1 style={{ color: "#4A90E2" }}>🚀 My React App</h1>
+      <p style={{ color: "#888" }}>CI/CD Pipeline with Firebase Hosting</p>
+
+      {/* Environment Badge */}
+      <div style={{
+        display: "inline-block",
+        backgroundColor: "#FFA500",
+        color: "white",
+        padding: "6px 20px",
+        borderRadius: "20px",
+        fontWeight: "bold",
+        marginBottom: "30px"
+      }}>
+        🌿 DEV Environment
+      </div>
+
+      {/* Info Cards */}
+      <div style={{ display: "flex", justifyContent: "center", gap: "20px", flexWrap: "wrap" }}>
+        
+        <div style={{ background: "#f0f4ff", borderRadius: "12px", padding: "20px", width: "180px" }}>
+          <div style={{ fontSize: "32px" }}>⚙️</div>
+          <h3>GitHub Actions</h3>
+          <p style={{ color: "#666", fontSize: "14px" }}>Automated pipeline running</p>
+        </div>
+
+        <div style={{ background: "#f0fff4", borderRadius: "12px", padding: "20px", width: "180px" }}>
+          <div style={{ fontSize: "32px" }}>🔥</div>
+          <h3>Firebase</h3>
+          <p style={{ color: "#666", fontSize: "14px" }}>Hosted on Firebase Hosting</p>
+        </div>
+
+        <div style={{ background: "#fff4f0", borderRadius: "12px", padding: "20px", width: "180px" }}>
+          <div style={{ fontSize: "32px" }}>✅</div>
+          <h3>CI/CD Live</h3>
+          <p style={{ color: "#666", fontSize: "14px" }}>Auto deploy on push</p>
+        </div>
+
+      </div>
+    </div>
+  )
 }
+
 export default App
