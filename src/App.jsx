@@ -132,7 +132,7 @@ function App() {
     <div className="app">
       <header className="app-header">
         <h1 className="app-logo" onClick={() => setSelectedMovie(null)}>
-          🎬 <span className="logo-text"></span>CineBook 
+          🎬 <span className="logo-text">CineBook</span> 
         </h1>
         <p className="app-tagline">Your city. Your show. Your seat.</p>
       </header>

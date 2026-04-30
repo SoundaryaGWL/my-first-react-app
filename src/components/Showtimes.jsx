@@ -1,15 +1,14 @@
 import { useState, useEffect } from "react";
 import { CINEMAS, SHOW_TIMES, HOUSEFULL, DATES } from "../data/movies";
 
-// Props: movie (object), onBack (function)
-// Concepts used: useState, useEffect, .map(), conditional rendering, onClick
+
 
 function Showtimes({ movie, onBack }) {
   const [selectedDate, setSelectedDate] = useState(0);
   const [selectedTime, setSelectedTime] = useState(null);
   const [booked, setBooked] = useState(false);
 
-  // useEffect — reset selections whenever the date tab changes
+ 
   useEffect(() => {
     setSelectedTime(null);
     setBooked(false);
@@ -21,12 +20,12 @@ function Showtimes({ movie, onBack }) {
 
   return (
     <div className="showtimes">
-      {/* Back button — onClick calls the onBack prop function */}
+    
       <button className="back-btn" onClick={onBack}>
         ← Back to movies
       </button>
 
-      {/* Movie detail header */}
+     
       <div className="detail-header">
         <div className="detail-poster" style={{ background: movie.bg }}>
           {movie.poster}
@@ -44,7 +43,7 @@ function Showtimes({ movie, onBack }) {
         </div>
       </div>
 
-      {/* Date tabs — .map() renders each date, onClick selects it */}
+      
       <div className="date-tabs">
         {DATES.map((d) => (
           <button
@@ -57,7 +56,7 @@ function Showtimes({ movie, onBack }) {
         ))}
       </div>
 
-      {/* Cinema + showtimes — nested .map() */}
+    
       <div className="cinemas-list">
         {CINEMAS.map((cinema) => (
           <div key={cinema.id} className="cinema-block">
@@ -87,7 +86,7 @@ function Showtimes({ movie, onBack }) {
         ))}
       </div>
 
-      {/* Conditional rendering — show Book button only when a time is selected */}
+      
       {selectedTime && !booked && (
         <div className="book-bar">
           <p className="selected-info">
@@ -100,7 +99,7 @@ function Showtimes({ movie, onBack }) {
         </div>
       )}
 
-      {/* Conditional rendering — confirmation after booking */}
+    
       {booked && (
         <div className="booked-panel">
           <p className="booked-title">Booking Confirmed!</p>
