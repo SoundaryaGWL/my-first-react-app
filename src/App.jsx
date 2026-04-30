@@ -73,51 +73,81 @@
 //     </button>
 //   );
 // }
-function App() {
-  return (
-    <div style={{ fontFamily: "Arial", textAlign: "center", padding: "40px" }}>
+// function App() {
+//   return (
+//     <div style={{ fontFamily: "Arial", textAlign: "center", padding: "40px" }}>
       
-      {/* Header */}
-      <h1 style={{ color: "#4A90E2" }}>🚀 My React App</h1>
-      <p style={{ color: "#888" }}>CI/CD Pipeline with Firebase Hosting</p>
+//       {/* Header */}
+//       <h1 style={{ color: "#4A90E2" }}>🚀 My React App</h1>
+//       <p style={{ color: "#888" }}>CI/CD Pipeline with Firebase Hosting</p>
 
-      {/* Environment Badge */}
-      <div style={{
-        display: "inline-block",
-        backgroundColor: "#FFA500",
-        color: "white",
-        padding: "6px 20px",
-        borderRadius: "20px",
-        fontWeight: "bold",
-        marginBottom: "30px"
-      }}>
-        🌿 Stage Environment
-      </div>
+//       {/* Environment Badge */}
+//       <div style={{
+//         display: "inline-block",
+//         backgroundColor: "#FFA500",
+//         color: "white",
+//         padding: "6px 20px",
+//         borderRadius: "20px",
+//         fontWeight: "bold",
+//         marginBottom: "30px"
+//       }}>
+//         🌿 Stage Environment
+//       </div>
 
-      {/* Info Cards */}
-      <div style={{ display: "flex", justifyContent: "center", gap: "20px", flexWrap: "wrap" }}>
+//       {/* Info Cards */}
+//       <div style={{ display: "flex", justifyContent: "center", gap: "20px", flexWrap: "wrap" }}>
         
-        <div style={{ background: "#f0f4ff", borderRadius: "12px", padding: "20px", width: "180px" }}>
-          <div style={{ fontSize: "32px" }}>⚙️</div>
-          <h3>GitHub Actions</h3>
-          <p style={{ color: "#666", fontSize: "14px" }}>Automated pipeline running</p>
-        </div>
+//         <div style={{ background: "#f0f4ff", borderRadius: "12px", padding: "20px", width: "180px" }}>
+//           <div style={{ fontSize: "32px" }}>⚙️</div>
+//           <h3>GitHub Actions</h3>
+//           <p style={{ color: "#666", fontSize: "14px" }}>Automated pipeline running</p>
+//         </div>
 
-        <div style={{ background: "#f0fff4", borderRadius: "12px", padding: "20px", width: "180px" }}>
-          <div style={{ fontSize: "32px" }}>🔥</div>
-          <h3>Firebase</h3>
-          <p style={{ color: "#666", fontSize: "14px" }}>Hosted on Firebase Hosting</p>
-        </div>
+//         <div style={{ background: "#f0fff4", borderRadius: "12px", padding: "20px", width: "180px" }}>
+//           <div style={{ fontSize: "32px" }}>🔥</div>
+//           <h3>Firebase</h3>
+//           <p style={{ color: "#666", fontSize: "14px" }}>Hosted on Firebase Hosting</p>
+//         </div>
 
-        <div style={{ background: "#fff4f0", borderRadius: "12px", padding: "20px", width: "180px" }}>
-          <div style={{ fontSize: "32px" }}>✅</div>
-          <h3>CI/CD Live</h3>
-          <p style={{ color: "#666", fontSize: "14px" }}>Auto deploy on push</p>
-        </div>
+//         <div style={{ background: "#fff4f0", borderRadius: "12px", padding: "20px", width: "180px" }}>
+//           <div style={{ fontSize: "32px" }}>✅</div>
+//           <h3>CI/CD Live</h3>
+//           <p style={{ color: "#666", fontSize: "14px" }}>Auto deploy on push</p>
+//         </div>
 
-      </div>
+//       </div>
+//     </div>
+//   )
+// }
+import { useState } from "react";
+import MovieList from "./components/MovieList";
+import Showtimes from "./components/Showtimes";
+import { MOVIES } from "./data/movies";
+import "./styles/app.css";
+
+function App() {
+  const [selectedMovie, setSelectedMovie] = useState(null);
+
+  return (
+    <div className="app">
+      <header className="app-header">
+        <h1 className="app-logo" onClick={() => setSelectedMovie(null)}>
+          🎬 CineBook
+        </h1>
+        <p className="app-tagline">Your city. Your show. Your seat.</p>
+      </header>
+
+      <main className="app-main">
+        {selectedMovie === null ? (
+          <MovieList movies={MOVIES} onSelect={setSelectedMovie} />
+        ) : (
+          <Showtimes movie={selectedMovie} onBack={() => setSelectedMovie(null)} />
+        )}
+      </main>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
+
+

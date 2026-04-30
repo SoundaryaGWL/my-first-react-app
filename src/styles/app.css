@@ -1,0 +1,440 @@
+/* ── Global ───────────────────────────────────────── */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  background: #f8fafc;
+  color: #1e293b;
+  min-height: 100vh;
+}
+
+/* ── App shell ────────────────────────────────────── */
+.app {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 1rem 3rem;
+}
+
+.app-header {
+  padding: 2rem 0 1.5rem;
+  border-bottom: 1px solid #e2e8f0;
+  margin-bottom: 1.75rem;
+}
+
+.app-logo {
+  font-size: 1.6rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-block;
+  letter-spacing: -0.5px;
+}
+
+.app-tagline {
+  font-size: 0.85rem;
+  color: #64748b;
+  margin-top: 4px;
+}
+
+.app-main {
+  min-height: 60vh;
+}
+
+/* ── Search row ───────────────────────────────────── */
+.search-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 1rem;
+}
+
+.search-input {
+  flex: 1;
+  padding: 9px 14px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  font-size: 14px;
+  background: #fff;
+  color: #1e293b;
+  outline: none;
+  transition: border-color 0.15s;
+}
+
+.search-input:focus {
+  border-color: #94a3b8;
+}
+
+.results-count {
+  font-size: 13px;
+  color: #94a3b8;
+  white-space: nowrap;
+}
+
+/* ── Genre bar ────────────────────────────────────── */
+.genre-bar {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+}
+
+.genre-btn {
+  font-size: 13px;
+  padding: 5px 16px;
+  border-radius: 20px;
+  border: 1px solid #cbd5e1;
+  background: transparent;
+  color: #64748b;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.15s;
+}
+
+.genre-btn:hover {
+  background: #f1f5f9;
+}
+
+.genre-btn.active {
+  background: #1e293b;
+  color: #fff;
+  border-color: transparent;
+}
+
+/* ── Movies grid ──────────────────────────────────── */
+.movies-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(175px, 1fr));
+  gap: 16px;
+}
+
+.no-results {
+  color: #94a3b8;
+  font-size: 14px;
+  padding: 3rem;
+  text-align: center;
+}
+
+/* ── Movie card ───────────────────────────────────── */
+.movie-card {
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  background: #fff;
+  transition: transform 0.15s, border-color 0.15s;
+}
+
+.movie-card:hover {
+  transform: translateY(-3px);
+  border-color: #94a3b8;
+}
+
+.movie-poster {
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.movie-emoji {
+  font-size: 38px;
+}
+
+.rating-badge {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.9);
+  color: #92400e;
+}
+
+.movie-info {
+  padding: 10px 12px 12px;
+}
+
+.movie-title {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 3px;
+  line-height: 1.3;
+}
+
+.movie-meta {
+  font-size: 12px;
+  color: #94a3b8;
+  margin-bottom: 8px;
+}
+
+.genre-tag {
+  display: inline-block;
+  font-size: 11px;
+  padding: 2px 9px;
+  border-radius: 8px;
+  background: #f1f5f9;
+  color: #475569;
+}
+
+/* ── Showtimes page ───────────────────────────────── */
+.showtimes {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.back-btn {
+  font-size: 13px;
+  padding: 6px 14px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  background: transparent;
+  color: #64748b;
+  cursor: pointer;
+  font-family: inherit;
+  align-self: flex-start;
+  transition: background 0.15s;
+}
+
+.back-btn:hover {
+  background: #f1f5f9;
+}
+
+/* ── Detail header ────────────────────────────────── */
+.detail-header {
+  display: flex;
+  gap: 18px;
+  padding: 1.25rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  background: #fff;
+}
+
+.detail-poster {
+  width: 84px;
+  height: 84px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 38px;
+  flex-shrink: 0;
+}
+
+.detail-info {
+  flex: 1;
+}
+
+.detail-title {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.detail-meta {
+  font-size: 13px;
+  color: #64748b;
+  margin-bottom: 8px;
+}
+
+.detail-desc {
+  font-size: 13px;
+  color: #475569;
+  line-height: 1.6;
+  margin-bottom: 6px;
+}
+
+.detail-cast {
+  font-size: 12px;
+  color: #94a3b8;
+}
+
+.label {
+  font-weight: 600;
+  color: #64748b;
+}
+
+/* ── Date tabs ────────────────────────────────────── */
+.date-tabs {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.date-tab {
+  padding: 6px 16px;
+  border-radius: 8px;
+  border: 1px solid #cbd5e1;
+  font-size: 13px;
+  cursor: pointer;
+  background: #fff;
+  color: #64748b;
+  font-family: inherit;
+  transition: all 0.15s;
+}
+
+.date-tab:hover {
+  background: #f1f5f9;
+}
+
+.date-tab.active {
+  background: #1e293b;
+  color: #fff;
+  border-color: transparent;
+}
+
+/* ── Cinema blocks ────────────────────────────────── */
+.cinemas-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+
+.cinema-block {
+  padding: 1rem 1.25rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  background: #fff;
+}
+
+.cinema-name {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.cinema-location {
+  font-size: 12px;
+  font-weight: 400;
+  color: #94a3b8;
+  margin-left: 8px;
+}
+
+.times-row {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.time-btn {
+  padding: 7px 16px;
+  border-radius: 8px;
+  border: 1px solid #cbd5e1;
+  font-size: 13px;
+  cursor: pointer;
+  background: #f8fafc;
+  color: #1e293b;
+  font-family: inherit;
+  transition: all 0.15s;
+}
+
+.time-btn:hover:not(:disabled) {
+  border-color: #94a3b8;
+  background: #f1f5f9;
+}
+
+.time-btn.selected {
+  background: #1e293b;
+  color: #fff;
+  border-color: transparent;
+}
+
+.time-btn.full {
+  opacity: 0.4;
+  cursor: not-allowed;
+  text-decoration: line-through;
+}
+
+.full-label {
+  font-size: 11px;
+}
+
+/* ── Book bar ─────────────────────────────────────── */
+.book-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.25rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  background: #fff;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.selected-info {
+  font-size: 14px;
+  color: #475569;
+}
+
+.book-btn {
+  padding: 9px 24px;
+  border-radius: 8px;
+  border: none;
+  background: #1e293b;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: inherit;
+  transition: opacity 0.15s;
+  white-space: nowrap;
+}
+
+.book-btn:hover {
+  opacity: 0.85;
+}
+
+/* ── Booking confirmation ─────────────────────────── */
+.booked-panel {
+  padding: 1.25rem;
+  border: 1px solid #bbf7d0;
+  border-radius: 10px;
+  background: #f0fdf4;
+}
+
+.booked-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: #166534;
+  margin-bottom: 6px;
+}
+
+.booked-detail {
+  font-size: 14px;
+  color: #15803d;
+  margin-bottom: 2px;
+}
+
+.booked-cinema {
+  font-size: 13px;
+  color: #16a34a;
+}
+
+/* ── Responsive ───────────────────────────────────── */
+@media (max-width: 600px) {
+  .detail-header {
+    flex-direction: column;
+  }
+
+  .detail-poster {
+    width: 64px;
+    height: 64px;
+    font-size: 28px;
+  }
+
+  .movies-grid {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  }
+
+  .book-bar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
