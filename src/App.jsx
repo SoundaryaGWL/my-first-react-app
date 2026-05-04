@@ -1,23 +1,28 @@
 import { useState } from "react";
+import MovieList from "./components/MovieList";
+import Showtimes from "./components/Showtimes";
+import { MOVIES } from "./data/movies";
+import "./styles/app.css";
 
 function App() {
   const [selectedMovie, setSelectedMovie] = useState(null);
 
   return (
-    <div>
-      <span onClick={() => setSelectedMovie(null)}>CineBook</span>
-      <p>Your city. Your show. Your seat.</p>
+    <div className="app">
+      <header className="app-header">
+        <h1 className="app-logo" onClick={() => setSelectedMovie(null)}>
+          🎬 CineBook
+        </h1>
+        <p className="app-tagline">Your city. Your show. Your seat.</p>
+      </header>
 
-      {selectedMovie === null ? (
-        <h2>Movie List Page</h2>
-      ) : (
-        <h2>Showtimes Page — {selectedMovie}</h2>
-      )}
-
-      {/* Temporary test button */}
-      <button onClick={() => setSelectedMovie("Interstellar")}>
-        Click a movie
-      </button>
+      <main className="app-main">
+        {selectedMovie === null ? (
+          <MovieList movies={MOVIES} onSelect={setSelectedMovie} />
+        ) : (
+          <Showtimes movie={selectedMovie} onBack={() => setSelectedMovie(null)} />
+        )}
+      </main>
     </div>
   );
 }
